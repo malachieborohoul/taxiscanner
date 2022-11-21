@@ -10,5 +10,6 @@ router.get('/hello', driverController.hello);
 router.post('/add-driver', driverController.addDriver);
 router.post('/save-driver-qrcode', driverController.saveDriverQrCode);
 router.post('/id-driver-exist', driverController.isDriverExist);
+router.get('/get-all-drivers', driverController.getAllDrivers);
 
 module.exports = router; 

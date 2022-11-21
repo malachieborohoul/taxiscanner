@@ -73,3 +73,11 @@ exports.isDriverExist = (req, res)=>{
     console.log(err);
   })
 }
+
+exports.getAllDrivers= (req, res)=>{
+  Driver.find().then((drivers)=>{
+    res.json(drivers)
+  }).catch((err)=>{
+    console.log(err)
+  })
+}
