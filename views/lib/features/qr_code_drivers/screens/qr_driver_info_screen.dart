@@ -10,7 +10,7 @@ import 'package:scanner/models/driver.dart';
 class QRDriverInfoScreen extends StatefulWidget {
   static const routeName = "qr_driver_info_screen";
 
-  final Driver driver;
+  final List<Driver> driver;
   const QRDriverInfoScreen({
     Key? key,
     required this.driver,
@@ -31,7 +31,7 @@ class _QRDriverInfoScreenState extends State<QRDriverInfoScreen> {
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
       ),
-      body: widget.driver == null? Center(child: Text('Aucune donné')): Center(
+      body: widget.driver.isEmpty? Center(child: Text('Aucune donné')): Center(
         child: SingleChildScrollView(
             child: Padding(
           padding: const EdgeInsets.all(appPadding),
@@ -46,7 +46,7 @@ class _QRDriverInfoScreenState extends State<QRDriverInfoScreen> {
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: NetworkImage(
-                        widget.driver.photo,
+                        widget.driver[0].photo,
                       ),
                     ),
                     color: Colors.white,
@@ -57,19 +57,19 @@ class _QRDriverInfoScreenState extends State<QRDriverInfoScreen> {
               Text("Nom et Prenom",
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
               SizedBox(height: 15),
-              Text(widget.driver.nom + " " + widget.driver.prenom,
+              Text(widget.driver[0].nom + " " + widget.driver[0].prenom,
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.w900)),
               SizedBox(height: 15),
               Text("Code",
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
               SizedBox(height: 15),
-              Text(widget.driver.codeChauffeur,
+              Text(widget.driver[0].codeChauffeur,
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.w900)),
               SizedBox(height: 15),
               Text("Numero d'imatriculation",
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
               SizedBox(height: 15),
-              Text(widget.driver.numeroIm,
+              Text(widget.driver[0].numeroIm,
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.w900)),
               SizedBox(height: 15),
               Container(
@@ -85,7 +85,7 @@ class _QRDriverInfoScreenState extends State<QRDriverInfoScreen> {
                     image: DecorationImage(
                         fit: BoxFit.contain,
                         image: NetworkImage(
-                          widget.driver.qrImage,
+                          widget.driver[0].qrImage,
                         ))),
               ),
             ],

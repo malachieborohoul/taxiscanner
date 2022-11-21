@@ -46,8 +46,9 @@ class QRCodeDriversService {
     }
   }
 
-  Future<Driver> isDriverExist(BuildContext context, String? idDriver) async {
-    late Driver driver;
+  Future<List<Driver>> isDriverExist(
+      BuildContext context, String? idDriver) async {
+    List<Driver> driverList = [];
 
     try {
       http.Response res = await http.post(Uri.parse("$uri/id-driver-exist"),
@@ -62,13 +63,21 @@ class QRCodeDriversService {
         response: res,
         context: context,
         onSuccess: () {
-          driver = Driver.fromJson(res.body);
+           for (int i = 0; i < jsonDecode(res.body).length; i++) {
+              driverList.add(
+                Driver.fromJson(
+                  jsonEncode(
+                    jsonDecode(res.body)[i],
+                  ),
+                ),
+              );
+            }
         },
         onFailed: () {},
       );
     } catch (e) {
       showSnackBar(context, e.toString());
     }
-    return driver;
+    return driverList;
   }
 }

@@ -22,7 +22,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
           settings: routeSettings, builder: (_) => const QRScanScreen());
    
     case QRDriverInfoScreen.routeName:
-          var driver = routeSettings.arguments as Driver;
+          var driver = routeSettings.arguments as List<Driver>;
 
       return MaterialPageRoute(
           settings: routeSettings, builder: (_) =>  QRDriverInfoScreen(driver: driver,));

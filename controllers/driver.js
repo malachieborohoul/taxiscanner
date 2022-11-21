@@ -1,5 +1,4 @@
 
-const driver = require("../models/driver");
 const Driver = require("../models/driver");
 exports.addDriver = (req, res, next) => {
 
@@ -63,11 +62,13 @@ exports.isDriverExist = (req, res)=>{
   const {idDriver} = req.body;
 
   Driver.findById(idDriver).then((driver)=>{
-    
+    if(!driver){
+      return res.json(false);
+    }
 
      res.json(driver);
   }).catch((err)=>{
-    return res.json(driver);
+    return res.json(false);
     console.log(err);
   })
 }

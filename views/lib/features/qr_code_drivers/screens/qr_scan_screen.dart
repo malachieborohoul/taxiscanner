@@ -22,7 +22,7 @@ class QRScanScreen extends StatefulWidget {
 class _QRScanScreenState extends State<QRScanScreen> {
   final qrKey = GlobalKey(debugLabel: "QR");
 
-  Driver? driver;
+  List<Driver> driver=[];
 
   bool isCharging = false;
 
