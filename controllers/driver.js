@@ -1,4 +1,5 @@
 
+const driver = require("../models/driver");
 const Driver = require("../models/driver");
 exports.addDriver = (req, res, next) => {
 
@@ -61,14 +62,14 @@ exports.saveDriverQrCode= (req, res)=>{
 exports.isDriverExist = (req, res)=>{
   const {idDriver} = req.body;
 
-  Driver.findById(idDriver).then((driver)=>{
-    if(!driver){
-      return res.json(false);
-    }
+  Driver.find({'_id': idDriver}).then((driver)=>{
+    // if(!driver){
+    //   return res.json(driver);
+    // }
 
      res.json(driver);
   }).catch((err)=>{
-    return res.json(false);
+    return res.json(driver);
     console.log(err);
   })
 }
