@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scanner/features/home/screens/home_screen.dart';
+import 'package:scanner/features/manage_drivers/screens/drivers_list.dart';
 import 'package:scanner/features/qr_code_drivers/screens/qr_create_screen.dart';
 import 'package:scanner/features/qr_code_drivers/screens/qr_driver_info_screen.dart';
 import 'package:scanner/features/qr_code_drivers/screens/qr_scan_screen.dart';
@@ -30,6 +31,10 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
      case HomeScreen.routeName:
       return MaterialPageRoute(
           settings: routeSettings, builder: (_) => const HomeScreen());
+    
+     case DriversList.routeName:
+      return MaterialPageRoute(
+          settings: routeSettings, builder: (_) => const DriversList());
    
     default:
       return MaterialPageRoute(

@@ -39,6 +39,9 @@ class _SplashScreenState extends State<SplashScreen> {
             Text("TAXISCAN",
                 style: TextStyle(
                     fontSize: 60, color: primary, fontWeight: FontWeight.bold)),
+            SizedBox(
+              height: 40,
+            ),
             CircularProgressIndicator(
               color: primary,
             )

@@ -4,6 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:scanner/constants/colors.dart';
 import 'package:scanner/constants/padding.dart';
+import 'package:scanner/features/manage_drivers/screens/drivers_list.dart';
 import 'package:scanner/features/qr_code_drivers/screens/qr_create_screen.dart';
 import 'package:scanner/features/save_drivers/screens/save_driver_screen.dart';
 
@@ -47,7 +48,20 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                     onTap: () {
                       Navigator.pushNamed(context, SaveDriversScreen.routeName);
                     },
-                  )
+                  ),
+                  Divider(
+                    thickness: 0.2,
+                    color: Colors.grey,
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.people_alt_outlined),
+                    title: Text("Liste de chauffeurs",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20)),
+                    onTap: () {
+                      Navigator.pushNamed(context, DriversList.routeName);
+                    },
+                  ),
                 ],
               )
             ],
