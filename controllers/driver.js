@@ -62,9 +62,7 @@ exports.isDriverExist = (req, res)=>{
   const {idDriver} = req.body;
 
   Driver.findById(idDriver).then((driver)=>{
-    if(!driver){
-      return res.json(false);
-    }
+    
 
      res.json(driver);
   }).catch((err)=>{

@@ -31,7 +31,7 @@ class _QRDriverInfoScreenState extends State<QRDriverInfoScreen> {
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
       ),
-      body: widget.driver==true?Loader(): Center(
+      body: widget.driver == null? Center(child: Text('Aucune donné')): Center(
         child: SingleChildScrollView(
             child: Padding(
           padding: const EdgeInsets.all(appPadding),
