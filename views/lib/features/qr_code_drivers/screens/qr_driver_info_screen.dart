@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:scanner/common/widgets/driver_not_found.dart';
 import 'package:scanner/common/widgets/loader.dart';
 import 'package:scanner/constants/colors.dart';
 import 'package:scanner/constants/padding.dart';
@@ -31,7 +32,7 @@ class _QRDriverInfoScreenState extends State<QRDriverInfoScreen> {
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
       ),
-      body: widget.driver.isEmpty? Center(child: Text('Aucune donné')): Center(
+      body: widget.driver.isEmpty? DriverNotFound(): Center(
         child: SingleChildScrollView(
             child: Padding(
           padding: const EdgeInsets.all(appPadding),

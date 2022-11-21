@@ -11,6 +11,7 @@ import 'package:scanner/common/widgets/loader.dart';
 import 'package:scanner/constants/colors.dart';
 import 'package:scanner/constants/padding.dart';
 import 'package:scanner/constants/utils.dart';
+import 'package:scanner/features/home/screens/home_screen.dart';
 import 'package:scanner/features/qr_code_drivers/services/qr_code_drivers_service.dart';
 import 'package:scanner/features/save_drivers/services/save_driver_service.dart';
 
@@ -39,9 +40,12 @@ class _QRCreateScreenState extends State<QRCreateScreen> {
 
   void saveDriverQrCode() {
     _qrCodeDriversService.saveDriverQrCode(context, widget.idDriver, test!, () {
-      showSnackBar(context, "QRCODE ajouté");
       setState(() {
         isCharging = false;
+      showSnackBar(context, "QRCODE ajouté");
+
+        Navigator.pushNamedAndRemoveUntil(
+            context, HomeScreen.routeName, (route) => false);
       });
     });
   }
@@ -91,7 +95,7 @@ class _QRCreateScreenState extends State<QRCreateScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primary,
-        title: Text("QR Code Generator"),
+        title: Text("Generateur de QRCode"),
       ),
       body: isCharging == true
           ? Loader()
@@ -113,21 +117,21 @@ class _QRCreateScreenState extends State<QRCreateScreen> {
                         height: 40,
                       ),
 
-                      test != null
-                          ?
-                          // Container(
-                          //     width: 50,
-                          //     height: 50,
-                          //     decoration: BoxDecoration(
-                          //         image: DecorationImage(image: MemoryImage(test!))),
-                          //   )
+                      // test != null
+                      //     ?
+                      // Container(
+                      //     width: 50,
+                      //     height: 50,
+                      //     decoration: BoxDecoration(
+                      //         image: DecorationImage(image: MemoryImage(test!))),
+                      //   )
 
-                          Image.file(
-                              File(test!),
-                              width: 70,
-                              height: 150,
-                            )
-                          : Container(child: Text("Ok")),
+                      // Image.file(
+                      //     File(test!),
+                      //     width: 70,
+                      //     height: 150,
+                      //   )
+                      // : Container(child: Text("Ok")),
 
                       GestureDetector(
                           onTap: takeScreenShot,

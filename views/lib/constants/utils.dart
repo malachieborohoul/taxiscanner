@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+const String assetImg = 'assets/images/';
+
 Future<XFile?> pickImage(ImageSource source) async {
   final ImagePicker _imagePicker = ImagePicker();
 
@@ -17,7 +19,7 @@ Future<XFile?> pickImage(ImageSource source) async {
 
 void showSnackBar(BuildContext context, String text) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    behavior: SnackBarBehavior.floating,
+    behavior: SnackBarBehavior.fixed,
     content: Text(text)));
 }
 
