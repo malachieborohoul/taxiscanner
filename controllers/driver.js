@@ -1,4 +1,5 @@
 
+const driver = require("../models/driver");
 const Driver = require("../models/driver");
 exports.addDriver = (req, res, next) => {
 
@@ -66,7 +67,7 @@ exports.isDriverExist = (req, res)=>{
 
      res.json(driver);
   }).catch((err)=>{
-    return res.json(null);
+    return res.json(driver);
     console.log(err);
   })
 }
