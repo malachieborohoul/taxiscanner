@@ -30,7 +30,11 @@ exports.addDriver = (req, res, next) => {
 
 exports.hello=(req, res)=>{
     // const {nom} = req.body;
-    res.send("hello") 
+    Driver.find().then((driver)=>{
+      res.json(driver)
+    }).catch((err)=>{
+      console.log(err)
+    })
 };
 
 
