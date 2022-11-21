@@ -16,7 +16,7 @@ app.use(driverRoute);
 
 mongoose.connect("mongodb+srv://bsm:mX80T67cpFEVng0g@cluster0.kyqpo0c.mongodb.net/?retryWrites=true&w=majority").then((result)=>{
     console.log('Connected');
-    app.listen(PORT, ()=>{
+    app.listen(PORT,"0.0.0.0", ()=>{
         console.log(`Server running on port ${PORT}`)
     });
 }).catch((err)=>{
