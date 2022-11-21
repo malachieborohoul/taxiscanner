@@ -66,7 +66,7 @@ exports.isDriverExist = (req, res)=>{
 
      res.json(driver);
   }).catch((err)=>{
-    return res.json(false);
+    return res.json(null);
     console.log(err);
   })
 }
